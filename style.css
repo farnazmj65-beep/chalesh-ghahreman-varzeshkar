@@ -1,0 +1,406 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Tahoma, Arial, sans-serif;
+  direction: rtl;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a5acd, #00bcd4, #4caf50);
+  color: #222;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+#game {
+  min-height: 100vh;
+}
+
+/* نوار بالا */
+
+.topbar {
+  width: 100%;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 5;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4b3fbf;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
+}
+
+#soundBtn {
+  border: none;
+  background: #f1f1f1;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+}
+
+/* صفحات */
+
+.screen {
+  display: none;
+  min-height: calc(100vh - 75px);
+  padding: 30px 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* کارت */
+
+.card {
+  background: rgba(255,255,255,0.96);
+  width: min(600px, 95%);
+  padding: 35px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.big-icon {
+  font-size: 80px;
+  margin-bottom: 15px;
+  animation: bounce 1.5s infinite;
+}
+
+h1 {
+  font-size: 34px;
+  color: #4b3fbf;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.start-card p {
+  font-size: 17px;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+/* دکمه‌ها */
+
+.main-btn,
+.secondary-btn {
+  border: none;
+  padding: 15px 30px;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px;
+  transition: 0.2s;
+}
+
+.main-btn {
+  background: #6a5acd;
+  color: white;
+  box-shadow: 0 6px 0 #483d9c;
+}
+
+.main-btn:active {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0 #483d9c;
+}
+
+.secondary-btn {
+  background: #eeeeee;
+  color: #333;
+}
+
+.designer {
+  margin-top: 25px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* بازی */
+
+#gameScreen {
+  flex-direction: column;
+}
+
+.game-header {
+  background: rgba(255,255,255,0.95);
+  width: min(850px, 95%);
+  padding: 20px;
+  text-align: center;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+
+.game-header h2 {
+  color: #4b3fbf;
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+
+.game-header p {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#gameArea {
+  width: min(850px, 95%);
+}
+
+/* مرحله واکنش */
+
+.reaction-area {
+  height: 330px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.target {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border: none;
+  background: #ffd740;
+  border-radius: 50%;
+  font-size: 40px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  animation: pulse 0.8s infinite;
+}
+
+/* سوالات */
+
+.question-box {
+  background: rgba(255,255,255,0.96);
+  border-radius: 30px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.question {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.answer-btn {
+  border: none;
+  padding: 18px 10px;
+  border-radius: 18px;
+  background: #eeeeee;
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.answer-btn:hover {
+  transform: scale(1.03);
+  background: #dddddd;
+}
+
+/* حافظه */
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.memory-card {
+  height: 110px;
+  border: none;
+  border-radius: 20px;
+  background: #6a5acd;
+  color: transparent;
+  font-size: 45px;
+  transition: 0.3s;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.memory-card.flipped,
+.memory-card.matched {
+  background: white;
+  color: #222;
+}
+
+.memory-card.matched {
+  transform: scale(0.95);
+}
+
+/* مرحله تعادل */
+
+.balance-area {
+  background: rgba(255,255,255,0.96);
+  border-radius: 30px;
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.balance-player {
+  font-size: 80px;
+  margin: 20px;
+  transition: transform 0.2s;
+}
+
+.balance-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.balance-btn {
+  border: none;
+  background: #6a5acd;
+  color: white;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 28px;
+}
+
+/* امتیاز پایان */
+
+.final-score {
+  background: #f1f1f1;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.final-score strong {
+  display: block;
+  font-size: 42px;
+  color: #4b3fbf;
+  margin-top: 10px;
+}
+
+/* انیمیشن‌ها */
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes starFly {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* موبایل */
+
+@media (max-width: 650px) {
+
+  .topbar {
+    padding: 12px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .stats {
+    font-size: 14px;
+  }
+
+  .screen {
+    min-height: calc(100vh - 100px);
+    padding: 20px 10px;
+  }
+
+  .card {
+    padding: 25px 18px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .big-icon {
+    font-size: 65px;
+  }
+
+  .answers {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .memory-card {
+    height: 100px;
+  }
+
+  .reaction-area {
+    height: 300px;
+  }
+
+  .balance-controls {
+    gap: 10px;
+  }
+
+  .balance-btn {
+    padding: 12px 25px;
+  }
+}
