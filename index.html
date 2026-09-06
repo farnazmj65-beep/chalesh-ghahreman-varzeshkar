@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>چالش قهرمان ورزشکار</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <div id="game">
+
+    <header class="topbar">
+      <div class="brand">🏆 چالش قهرمان ورزشکار</div>
+
+      <div class="stats">
+        <div>امتیاز: <span id="score">0</span></div>
+        <div>مرحله: <span id="level">1</span></div>
+        <button id="soundBtn" type="button">🔊</button>
+      </div>
+    </header>
+
+    <!-- صفحه شروع -->
+    <section id="startScreen" class="screen active">
+      <div class="card start-card">
+
+        <div class="big-icon">🏃‍♀️</div>
+
+        <h1>چالش قهرمان ورزشکار</h1>
+
+        <p class="subtitle">
+          ویژه دانش‌آموزان پایه چهارم، پنجم و ششم
+        </p>
+
+        <p>
+          آماده‌ای مهارت‌های ورزشی خودت رو امتحان کنی؟ 💪
+        </p>
+
+        <button id="startBtn" class="main-btn" type="button">
+          شروع بازی 🚀
+        </button>
+
+        <div class="designer">
+          ✦ طراح: فرناز الهیاری ✦
+        </div>
+
+      </div>
+    </section>
+
+    <!-- صفحه بازی -->
+    <section id="gameScreen" class="screen">
+
+      <div class="game-header">
+        <h2 id="stageTitle">مرحله اول</h2>
+        <p id="message">آماده باش!</p>
+      </div>
+
+      <div id="gameArea"></div>
+
+    </section>
+
+    <!-- صفحه پایان -->
+    <section id="endScreen" class="screen">
+
+      <div class="card end-card">
+
+        <div class="big-icon">🏆</div>
+
+        <h1 id="finalTitle">آفرین قهرمان! 🎉</h1>
+
+        <p id="finalMessage"></p>
+
+        <div class="final-score">
+          امتیاز نهایی:
+          <strong id="finalScore">0</strong>
+        </div>
+
+        <button id="restartBtn" class="main-btn" type="button">
+          دوباره بازی کن 🔄
+        </button>
+
+        <button id="homeBtn" class="secondary-btn" type="button">
+          صفحه اصلی 🏠
+        </button>
+
+        <div class="designer">
+          ✦ طراح: فرناز الهیاری ✦
+        </div>
+
+      </div>
+
+    </section>
+
+    <div id="particles"></div>
+
+  </div>
+
+</body>
+</html>
